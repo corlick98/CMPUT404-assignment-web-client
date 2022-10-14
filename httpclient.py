@@ -66,8 +66,8 @@ class HTTPClient(object):
         headers = headers.splitlines()[1:]
         headers_dict = {}
         for line in headers:
-            name, value = line.split(":")
-            headers_dict[name] = value
+            split = line.split(":")
+            headers_dict[split[0]] = ':'.join(split[1:])
         return headers_dict
 
     def get_body(self, data):
